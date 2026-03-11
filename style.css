@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'New Spirit';
+    src: url('new-spirit-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --main-bg: #8C0C4A;
+    /* Retained the rich magenta/burgundy, maybe darken slightly for premium? Let's keep your brand color but use it elegantly */
+    --highlight-blue: #333DE3;
+    --highlight-red: #FF3333;
+    --logo-orange: #FF6B4A;
+    --text-light: #FDF9F1;
+    --surface-dark: rgba(0, 0, 0, 0.15);
+    /* Sleek translucent surfaces */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    /* Added a subtle noise texture to make the solid background look expensive */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Removed Creative Background Elements as requested for a more premium solid look */
+
+.content-container {
+    max-width: 700px;
+    padding: 60px 30px;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto 50px auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    /* Using New Spirit if installed, fallback to a highly premium serif like Playfair */
+    font-family: 'New Spirit', 'Playfair Display', 'Chronicle Display', 'Times New Roman', serif;
+    font-size: 5.5rem;
+    /* Larger for more impact */
+    line-height: 0.95;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    color: var(--text-light);
+    font-weight: 500;
+    /* Serif headings often look more premium when slightly lighter than 900 */
+}
+
+.launching-text {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+    display: inline-block;
+    border: 1px solid rgba(253, 249, 241, 0.3);
+    /* Premium subtle border instead of background */
+    padding: 8px 20px;
+    border-radius: 30px;
+}
+
+.launching-text.success {
+    border-color: var(--logo-orange);
+    color: var(--logo-orange);
+}
+
+p.description {
+    font-size: 1.35rem;
+    /* Slightly larger for readability */
+    line-height: 1.6;
+    margin-bottom: 60px;
+    font-weight: 300;
+    /* Outfit looks incredibly premium at 300 weight */
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(253, 249, 241, 0.9);
+    /* Slightly muted text for better hierarchy */
+}
+
+.accent-orange {
+    color: var(--logo-orange);
+    font-weight: 500;
+}
+
+.accent-blue {
+    color: var(--text-light);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(253, 249, 241, 0.4);
+    padding-bottom: 2px;
+}
+
+/* Changed to an elegant underline to look less 'startup-y' */
+.accent-bold {
+    font-weight: 600;
+    color: white;
+}
+
+/* Form Styling */
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(min-width: 550px) {
+    .subscribe-form {
+        flex-direction: row;
+        background: var(--surface-dark);
+        padding: 6px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Very subtle premium border */
+        backdrop-filter: blur(10px);
+        /* Glassmorphism effect */
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    input[type="email"] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    input[type="email"]::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+    }
+}
+
+input[type="email"] {
+    flex: 1;
+    padding: 18px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+button,
+.primary-btn {
+    font-family: 'Outfit', sans-serif;
+    padding: 18px 45px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--main-bg);
+    /* Inverted brand color makes it pop elegantly */
+    background-color: var(--text-light);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover:not(:disabled),
+.primary-btn:hover {
+    background-color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.subtext {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* MailerLite specific utilities */
+.ml-error input {
+    border: 2px solid var(--highlight-red) !important;
+}
+
+.row-success {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.row-success h4 {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    color: var(--text-light);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .logo {
+        max-width: 220px;
+        margin-bottom: 30px;
+    }
+
+    p.description {
+        font-size: 1.1rem;
+    }
+}
